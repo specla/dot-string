@@ -1,5 +1,5 @@
 /**
- * Access value from object with dot-notation
+ * Get array item or object property with dot string syntax
  * @param  {Object|Array} item The object/Array where the value should be retreived from
  * @param  {String} path dot-notation string
  * @return {Mixed}

@@ -1,8 +1,9 @@
 /**
- * Set item value with dot-notation, this works for arrays and objects
+ * Set array items or object properties with dot string
  * @param {Array|Object} item
- * @param {String} path  [description]
- * @param {} value [description]
+ * @param {String} path
+ * @param {Mixed} value
+ * @return {Mixed}
  */
 export default function set (item, path, value) {
   if (typeof item !== 'object') {
