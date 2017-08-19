@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should throw an error if the first argument isn't an array or object 1`] = `"item should be an array or string"`;
+
+exports[`Should throw an error if the second argument isn't a string 1`] = `"path should be a string"`;
