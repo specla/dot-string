@@ -15,6 +15,13 @@
     "email": "hello@kvartborg.net",
     "url": "https://kvartborg.net"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/specla/dot-string.git"
+  },
+  "bugs": {
+    "url": "https://github.com/specla/dot-string/issues"
+  },
   "main": "lib/index.js",
   "module": "src/index.js",
   "files": [
@@ -49,5 +56,8 @@
     "modulePaths": [
       "src"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
