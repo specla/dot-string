@@ -9,7 +9,7 @@
 Manage array items or object properties with dot notation strings.
 
 ### Install
-```js
+```sh
 npm install @specla/dot-string
 ```
 
