@@ -30,7 +30,7 @@ export default function set (item, path, value) {
       acc[path] = {}
     }
 
-    if (!acc[path] && !isNaN(path) ) {
+    if (!acc[path] && !isNaN(path)) {
       acc[path] = []
     }
 
