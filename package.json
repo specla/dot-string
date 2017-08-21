@@ -1,7 +1,7 @@
 {
   "name": "@specla/dot-string",
   "description": "Manage array items or object properties with dot notation strings",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "keywords": [
     "specla",
