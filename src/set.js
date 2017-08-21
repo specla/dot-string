@@ -3,7 +3,7 @@
  * @param {Array|Object} item
  * @param {String} path
  * @param {Mixed} value
- * @return {Mixed}
+ * @return {Array|Object} new item
  */
 export default function set (item, path, value) {
   if (typeof item !== 'object') {
@@ -14,22 +14,32 @@ export default function set (item, path, value) {
     throw new TypeError('path should be a string')
   }
 
+  let newItem = null
+
+  if (Array.isArray(item)) {
+    newItem = item.concat([])
+  } else {
+    newItem = Object.assign({}, item)
+  }
+
   path = path.split('.')
   const lastItem = path[path.length - 1]
 
-  return path.reduce((acc, index) => {
-    if (!acc[index] && index === lastItem) {
-      acc[index] = value
+  path.reduce((acc, path) => {
+    if (!acc[path] && isNaN(path)) {
+      acc[path] = {}
     }
 
-    if (!acc[index] && isNaN(index)) {
-      acc[index] = {}
+    if (!acc[path] && !isNaN(path) ) {
+      acc[path] = []
     }
 
-    if (!acc[index] && !isNaN(index)) {
-      acc[index] = []
+    if (path === lastItem) {
+      acc[path] = value
     }
 
-    return acc[index]
-  }, item)
+    return acc[path]
+  }, newItem)
+
+  return newItem
 }

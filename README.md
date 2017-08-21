@@ -7,6 +7,7 @@
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 Manage array items or object properties with dot notation strings.
+The `set` method is immutable and returns a new array or object.
 
 ### Install
 ```sh
@@ -21,5 +22,5 @@ import { get, set } from '@specla/dot-string'
 const value = get(obj, 'key.item')
 
 // Set an array item or object property with dot string syntax
-set(obj, 'key.item', 'some value...')
+const newObj = set(obj, 'key.item', 'some value...')
 ```
