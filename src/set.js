@@ -2,10 +2,11 @@
  * Set array items or object properties with dot string
  * @param {Array|Object} item
  * @param {String} path
- * @param {Mixed} value
+ * @param {Array|Object} value
+ * @param {Boolean} immutable
  * @return {Array|Object} new item
  */
-export default function set (item, path, value) {
+export default function set (item, path, value, immutable = false) {
   if (typeof item !== 'object') {
     throw new TypeError('item should be the type of array or object')
   }
@@ -16,10 +17,12 @@ export default function set (item, path, value) {
 
   let newItem = null
 
-  if (Array.isArray(item)) {
-    newItem = item.concat([])
-  } else {
-    newItem = Object.assign({}, item)
+  if (immutable) {
+    if (Array.isArray(item)) {
+      newItem = item.concat([])
+    } else {
+      newItem = Object.assign({}, item)
+    }
   }
 
   path = path.split('.')
@@ -39,7 +42,7 @@ export default function set (item, path, value) {
     }
 
     return acc[path]
-  }, newItem)
+  }, newItem || item)
 
-  return newItem
+  return newItem || item
 }
