@@ -2,7 +2,7 @@
  * Set array items or object properties with dot string
  * @param {Array|Object} item
  * @param {String} path
- * @param {Mixed} value
+ * @param {Array|Object} value
  * @return {Array|Object} new item
  */
 export default function set (item, path, value) {
@@ -12,14 +12,6 @@ export default function set (item, path, value) {
 
   if (typeof path !== 'string') {
     throw new TypeError('path should be a string')
-  }
-
-  let newItem = null
-
-  if (Array.isArray(item)) {
-    newItem = item.concat([])
-  } else {
-    newItem = Object.assign({}, item)
   }
 
   path = path.split('.')
@@ -39,7 +31,7 @@ export default function set (item, path, value) {
     }
 
     return acc[path]
-  }, newItem)
+  }, item)
 
-  return newItem
+  return item
 }
