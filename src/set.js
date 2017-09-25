@@ -3,7 +3,6 @@
  * @param {Array|Object} item
  * @param {String} path
  * @param {Array|Object} value
- * @param {Boolean} immutable
  * @return {Array|Object} new item
  */
 export default function set (item, path, value) {
